@@ -11,7 +11,7 @@ gem "delayed_job_active_record", "4.1.2"
 gem "delayed_cron_job"
 gem "knock", "~> 2.1.1"
 gem "pg"
-gem "puma", "~> 3.0"
+gem "puma", "~> 3.12"
 gem "rack-cors"
 gem "one_signal"
 
