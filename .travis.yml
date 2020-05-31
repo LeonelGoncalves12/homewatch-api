@@ -1,0 +1,22 @@
+dist: trusty
+sudo: false
+language: ruby
+addons:
+  postgresql: "9.6"
+services:
+- postgresql
+before_script:
+- cp config/database.yml.travis config/database.yml
+rvm:
+- 2.4.2
+env:
+- RAILS_VERSION=5.0.2
+branches:
+  only:
+  - master
+install:
+- bundle install
+script:
+- bundle exec rake db:reset
+- bundle exec rake lint
+- COVERAGE=true bundle exec rake spec

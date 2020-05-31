@@ -1,0 +1,72 @@
+AllCops:
+  Include:
+    - "**/Rakefile"
+    - "**/config.ru"
+    - "Gemfile"
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+  TargetRubyVersion: 2.4
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+    - have_
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -1,0 +1,47 @@
+{
+  "name": "homewatch-api",
+  "scripts": {
+  },
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "ROLLBAR_ACCESS_TOKEN": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    },
+    "ONESIGNAL_API_KEY": {
+      "required": true,
+      "value": "Zjc5NjdiYTYtZjk0Yi00NGUzLThiMzctOWMzM2E4NTJjMGE5"
+    },
+    "ONESIGNAL_USER_AUTH_KEY": {
+      "required": true,
+      "value": "M2QzYjg4MzYtZjRiMC00MzBkLTk1N2MtZGNiNzI2ZDY2YjA0"
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

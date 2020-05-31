@@ -1,0 +1,54 @@
+Index: app/models/weather.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/models/weather.rb	(revision 7f169b478fe70ccd504be5bb36ebfcf752320ed4)
++++ app/models/weather.rb	(date 1547514039000)
+@@ -4,4 +4,4 @@
+ 
+   validates :city, :wind, :humidity, :sunrise, :sunset, :icon, presence: true
+ 
+-end
+\ No newline at end of file
++end 
+\ No newline at end of file
+Index: db/schema.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- db/schema.rb	(revision 7f169b478fe70ccd504be5bb36ebfcf752320ed4)
++++ db/schema.rb	(date 1547513978000)
+@@ -10,7 +10,7 @@
+ #
+ # It's strongly recommended that you check this file into your version control system.
+ 
+-ActiveRecord::Schema.define(version: 20181020200902) do
++ActiveRecord::Schema.define(version: 20190114234831) do
+ 
+   # These are extensions that must be enabled in order to support this database
+   enable_extension "plpgsql"
+@@ -126,9 +126,22 @@
+     t.string "password_digest"
+     t.datetime "created_at", null: false
+     t.datetime "updated_at", null: false
++    t.string "city"
+     t.index ["email"], name: "index_users_on_email", unique: true
+   end
+ 
++  create_table "weathers", force: :cascade do |t|
++    t.string "city", null: false
++    t.string "wind", null: false
++    t.string "humidity", null: false
++    t.string "sunrise", null: false
++    t.string "sunset", null: false
++    t.bigint "user_id"
++    t.datetime "created_at", null: false
++    t.datetime "updated_at", null: false
++    t.index ["user_id"], name: "index_weathers_on_user_id"
++  end
++
+   add_foreign_key "timed_tasks", "homes"
+   add_foreign_key "timed_tasks", "scenarios"
+   add_foreign_key "timed_tasks", "things"
