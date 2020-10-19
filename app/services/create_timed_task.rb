@@ -10,9 +10,10 @@ class CreateTimedTask
     @status = false
   end
 
-  def perform
+  def perform 
+    puts 'teste perfom 1'
     return unless @cron
-    puts 'teste perfom'
+    puts 'teste perfom 2'
     perform_transaction
 
     timed_task
@@ -23,6 +24,7 @@ class CreateTimedTask
   attr_reader :home, :params, :cron, :timed_task, :user
 
   def perform_transaction
+    puts 'teste perform_transaction'
     ActiveRecord::Base.transaction do
       @timed_task = home.timed_tasks.build(params)
       create_job
