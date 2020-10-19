@@ -12,7 +12,7 @@ class CreateTimedTask
 
   def perform
     return unless @cron
-
+    puts 'teste perfom'
     perform_transaction
 
     timed_task
@@ -33,7 +33,7 @@ class CreateTimedTask
 
   def create_job
     return unless timed_task.save
-
+puts 'teste create'
     timed_task.delayed_job = timed_task.delay(cron: cron).applyTimed(@user, timed_task)
 
 
