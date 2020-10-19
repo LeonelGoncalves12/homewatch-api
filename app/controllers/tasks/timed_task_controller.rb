@@ -17,12 +17,12 @@ class Tasks::TimedTaskController < ApplicationController
 
   def create
     home = current_user.homes.find(params[:home_id])
-
+    puts 'teste 1'
     create_timed_task = CreateTimedTask.new(home: home, params: timed_task_params, user: current_user)
-
+    puts 'teste 2'
     timed_task = create_timed_task.perform
  
-
+    puts 'teste 3'
     if create_timed_task.status
       render json: timed_task, status: :created
 
