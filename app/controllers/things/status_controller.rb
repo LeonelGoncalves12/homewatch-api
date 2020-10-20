@@ -4,7 +4,7 @@ class Things::StatusController < ApplicationController
 
   def show
     thing_status = fetch_thing.status
-    puts "teste status"
+
     render json: thing_status.body_json, status: normalize_status_code(thing_status.response_code)
   end
 

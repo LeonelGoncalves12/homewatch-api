@@ -41,7 +41,7 @@ class Tasks::TriggeredTask < ApplicationRecord
       
           api_key=ENV['ONESIGNAL_API_KEY']
           user_auth_key=ENV['ONESIGNAL_USER_AUTH_KEY']
-          app_id =ENV['APP_ID']
+          app_id =ENV['ONE_SIGNAL_APP_ID']
       
           # configure OneSignal
           OneSignal::OneSignal.api_key = api_key

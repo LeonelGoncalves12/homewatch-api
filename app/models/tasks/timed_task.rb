@@ -9,10 +9,10 @@ class Tasks::TimedTask < ApplicationRecord
   end
 
 def applyTimed(user, timed_task)
-  puts "teste 4"
+
   apply
 
-  puts "teste 5"
+
   @paramms = ActionController::Parameters.new({statistic: {
       timed_task: timed_task.id
   }})
@@ -20,22 +20,30 @@ def applyTimed(user, timed_task)
   statistic = create_statistic_service.performStat
   statistic.save
 
-  puts "teste 6"
+
   setting = Setting.select('timed_tasks_not AS timed_tasks_not').where(:user_id => user.id).first.timed_tasks_not
-  puts "teste 7"
+
   isActive = ActiveModel::Type::Boolean.new.cast(setting)
-  puts "teste 8"
+
   if isActive
-    puts "teste 89"
+
     api_key=ENV['ONESIGNAL_API_KEY']
     user_auth_key=ENV['ONESIGNAL_USER_AUTH_KEY']
-    app_id =ENV['APP_ID']
-    puts "teste 10"
+    app_id =ENV['ONE_SIGNAL_APP_ID']
+
+
+    puts 'api_key: '
+    puts api_key
+    puts 'user_auth_key: '
+    puts user_auth_key
+    puts 'app_id: '
+    puts app_id
+
+
     # configure OneSignal
     OneSignal::OneSignal.api_key = api_key
     OneSignal::OneSignal.user_auth_key = user_auth_key
 
-    puts "teste 11"
     params = {"app_id" => app_id, 
             "contents" => {"en" => "Timed Task has been executed."},
             "filters" => [
@@ -43,6 +51,8 @@ def applyTimed(user, timed_task)
               ]
       }
       
+      puts 'params'
+      puts params
     begin
       response = OneSignal::Setting.create(params: params)
       setting_id = JSON.parse(response.body)["id"]
