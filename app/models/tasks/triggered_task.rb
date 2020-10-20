@@ -59,7 +59,7 @@ class Tasks::TriggeredTask < ApplicationRecord
       
             
           begin
-            response = OneSignal::Setting.create(params: params)
+            response = OneSignal::Notification.create(params: params)
             setting_id = JSON.parse(response.body)["id"]
           rescue OneSignal::OneSignalError => e
             puts "--- OneSignalError  :"
