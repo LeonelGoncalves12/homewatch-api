@@ -56,6 +56,7 @@ def applyTimed(user, timed_task)
     begin
       response = OneSignal::Notification.create(params: params)
       setting_id = JSON.parse(response.body)["id"]
+      puts setting_id
     rescue OneSignal::OneSignalError => e
       puts "--- OneSignalError  :"
       puts "-- message : #{e.message}"
